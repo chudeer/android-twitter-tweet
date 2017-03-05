@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Simple Tweets</string>
+    <string name="login_label">Connect to Twitter</string>
+    <string name="title_activity_timeline">Your Timeline</string>
+    <string name="title_activity_tweet_details">Tweet Details</string>
+    <string name="user_screen_name">\@yichu_c</string>
+    <string name="tweet_text">say something</string>
+    <string name="created_at_long">6:30 PM - 05 MAR 2017</string>
+    <string name="reweet_count">25</string>
+    <string name="favorites_count">42</string>
+    <string name="user_name">yi chu</string>
+    <string name="compose_tweet_hint">hey~</string>
+    <string name="update_status">Tweet</string>
+    <string name="characters_left">140</string>
+    <string name="created_at_relative">1m</string>
+    <string name="tweet_id">-1</string>
+
+</resources>

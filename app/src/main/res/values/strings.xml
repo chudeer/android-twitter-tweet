@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Simple Tweets</string>
+    <string name="app_name">SimpleTweets</string>
     <string name="login_label">Connect to Twitter</string>
-    <string name="title_activity_timeline">Your Timeline</string>
+    <string name="title_activity_timeline">Timeline</string>
     <string name="title_activity_tweet_details">Tweet Details</string>
-    <string name="user_screen_name">\@yichu_c</string>
-    <string name="tweet_text">say something</string>
-    <string name="created_at_long">6:30 PM - 05 MAR 2017</string>
-    <string name="reweet_count">25</string>
-    <string name="favorites_count">42</string>
+    <string name="user_screen_name">\@bart_simpson</string>
+    <string name="tweet_text">Hi!</string>
+    <string name="created_at_long">6:30 AM - 12 MAR 2017</string>
+    <string name="reweet_count">7</string>
+    <string name="favorites_count">6</string>
     <string name="user_name">yi chu</string>
-    <string name="compose_tweet_hint">hey~</string>
+    <string name="compose_tweet_hint">Hi?</string>
     <string name="update_status">Tweet</string>
     <string name="characters_left">140</string>
-    <string name="created_at_relative">1m</string>
+    <string name="created_at_relative">5m</string>
     <string name="tweet_id">-1</string>
+    <string name="profile_title">Profile</string>
+    <string name="compose_tweet_title">Compose</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="tweet_count_label">TWEETS</string>
+    <string name="tweet_count">36</string>
+    <string name="following_count">31</string>
+    <string name="following_count_label">FOLLOWING</string>
+    <string name="followers_count">30</string>
+    <string name="followers_count_label">FOLLOWERS</string>
+    <string name="favorites_count_label">FAVORITES</string>
+    <string name="search_tweets_title">Search</string>
+    <string name="title_activity_search">Search</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="follow">Follow</string>
 
 </resources>

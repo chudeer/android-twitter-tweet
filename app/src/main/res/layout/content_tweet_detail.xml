@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codepath.apps.simpletweets.activities.TweetDetailsActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.codepath.apps.simpletweets.activities.TweetDetailActivity"
+    tools:showIn="@layout/activity_tweet_detail">
 
 </android.support.constraint.ConstraintLayout>

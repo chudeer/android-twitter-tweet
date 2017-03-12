@@ -4,6 +4,9 @@ package com.codepath.apps.simpletweets.models;
  * Created by YichuChen on 3/3/17.
  */
 
+
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Collections;

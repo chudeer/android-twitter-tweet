@@ -1,5 +1,6 @@
 package com.codepath.apps.simpletweets;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
@@ -20,7 +21,7 @@ import java.util.List;
 /*
  *
  * This is the object responsible for communicating with a REST API.
- * Specify the constants below to change the API being communicated with.
+ * Specify the com.codepath.apps.simpletweets.constants below to change the API being communicated with.
  * See a full list of supported API classes:
  *   https://github.com/fernandezpablo85/scribe-java/tree/master/src/main/java/org/scribe/builder/api
  * Key and Secret are provided by the developer site for the given API i.e dev.twitter.com

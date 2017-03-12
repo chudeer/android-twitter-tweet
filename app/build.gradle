@@ -39,17 +39,17 @@ dependencies {
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.codepath.libraries:android-oauth-handler:1.1.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.android.support:design:25.2.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.0.6'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.0.6'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.0.6'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.loopj.android:android-async-http:1.4.8'
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     compile 'com.makeramen:roundedimageview:2.2.0'
     compile 'org.ocpsoft.prettytime:prettytime:3.1.0.Final'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

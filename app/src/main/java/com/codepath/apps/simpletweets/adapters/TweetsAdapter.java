@@ -6,7 +6,7 @@ package com.codepath.apps.simpletweets.adapters;
 
 import android.view.View;
 
-package com.codepath.apps.twitter.adapters;
+
 
         import android.content.Context;
         import android.content.Intent;
@@ -19,13 +19,14 @@ import android.view.ViewGroup;
         import android.widget.ImageView;
         import android.widget.TextView;
 
-        import com.codepath.apps.twitter.R;
-        import com.codepath.apps.simpletweets.TweetDetailsActivity;
-        import com.codepath.apps.twitter.constants.Extras;
-        import com.codepath.apps.twitter.models.Entities;
-        import com.codepath.apps.twitter.models.Media;
-        import com.codepath.apps.twitter.models.Tweet;
-        import com.codepath.apps.twitter.models.TwitterUser;
+        import com.codepath.apps.simpletweets.R;
+//import com.codepath.apps.simpletweets.constants.Extras;
+import com.codepath.apps.simpletweets.activities.TimelineActivity;
+import com.codepath.apps.simpletweets.activities.TweetDetailsActivity;
+import com.codepath.apps.simpletweets.models.Entities;
+        import com.codepath.apps.simpletweets.models.Media;
+        import com.codepath.apps.simpletweets.models.Tweet;
+        import com.codepath.apps.simpletweets.models.TwitterUser;
         import com.squareup.picasso.Picasso;
 
         import org.ocpsoft.prettytime.PrettyTime;
@@ -33,18 +34,30 @@ import android.view.ViewGroup;
         import java.text.ParseException;
         import java.text.SimpleDateFormat;
         import java.util.List;
+package com.codepath.apps.simpletweets.adapters;
+
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class TweetsAdapter extends ArrayAdapter<Tweet> {
     private static final PrettyTime PRETTY_TIME = new PrettyTime();
     private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy");
+    private OnUserProfileClickListener onUserProfileClickListener;
+    private OnTweetReplyClickListener onTweetReplyClickListener;
 
-    public TweetsAdapter(Context context, List<Tweet> tweets) {
+    public TweetsAdapter(Context context, List<Tweet> tweets, OnUserProfileClickListener onUserProfileClickListener, OnTweetReplyClickListener onTweetReplyClickListener) {
         super(context, android.R.layout.simple_list_item_1, tweets);
+        this.onUserProfileClickListener = onUserProfileClickListener;
+        this.onTweetReplyClickListener = onTweetReplyClickListener;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Tweet tweet = getItem(position);
+        final Tweet tweet = getItem(position);
+        final TwitterUser user = tweet.getUser();
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
         }
@@ -55,7 +68,14 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
         TextView tvTweetText = (TextView) convertView.findViewById(R.id.tvTweetText);
         tvTweetText.setText(Html.fromHtml(tweet.getText()), TextView.BufferType.SPANNABLE);
         ImageView ivUserPhoto = (ImageView) convertView.findViewById(R.id.ivUserPhoto);
-        TwitterUser user = tweet.getUser();
+        ivUserPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onUserProfileClickListener != null) {
+                    onUserProfileClickListener.onUserProfileClick(user);
+                }
+            }
+        });
         Picasso.with(getContext()).load(user.getProfileImageUrl()).into(ivUserPhoto);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
         tvUserName.setText(user.getName());
@@ -67,7 +87,15 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
         } catch (ParseException e) {
             Log.d("TWEET", "uh oh", e);
         }
-
+        ImageView ivReply = (ImageView) convertView.findViewById(R.id.ivReply);
+        ivReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onTweetReplyClickListener != null) {
+                    onTweetReplyClickListener.onTweetReplyClick(tweet);
+                }
+            }
+        });
         convertView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -75,7 +103,7 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
                     TextView tvTweetId = (TextView) v.findViewById(R.id.tvTweetId);
                     Long id = Long.parseLong(tvTweetId.getText().toString());
                     Intent intent = new Intent(getContext(), TweetDetailsActivity.class);
-                    intent.putExtra(Extras.TWEET_ID, id);
+                    intent.putExtra(com.codepath.apps.twitter.constants.Extras.TWEET_ID, id);
                     getContext().startActivity(intent);
                 }
                 return true;

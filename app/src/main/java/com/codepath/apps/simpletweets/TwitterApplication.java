@@ -20,7 +20,7 @@ public class TwitterApplication extends com.activeandroid.app.Application {
 		TwitterApplication.context = this;
 	}
 
-	public static com.codepath.apps.twitter.TwitterClient getRestClient() {
-		return (com.codepath.apps.twitter.TwitterClient) com.codepath.apps.twitter.TwitterClient.getInstance(com.codepath.apps.twitter.TwitterClient.class, TwitterApplication.context);
+	public static com.codepath.apps.simpletweets.TwitterClient getRestClient() {
+		return (com.codepath.apps.simpletweets.TwitterClient) com.codepath.apps.simpletweets.TwitterClient.getInstance(com.codepath.apps.simpletweets.TwitterClient.class, TwitterApplication.context);
 	}
 }

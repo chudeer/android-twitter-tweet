@@ -18,11 +18,14 @@
         <item name="colorAccent">#eeefcb</item>
         <item name="android:buttonStyle">@style/Widget.Button.Custom</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Widget.Button.Custom" parent="android:Widget.Button">

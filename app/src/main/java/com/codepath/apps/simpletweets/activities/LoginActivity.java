@@ -1,11 +1,15 @@
-package com.codepath.apps.simpletweets;
+package com.codepath.apps.simpletweets.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.codepath.apps.simpletweets.R;
+import com.codepath.apps.simpletweets.TwitterApplication;
 import com.codepath.apps.simpletweets.TwitterClient;
+import com.codepath.apps.simpletweets.activities.TimelineActivity;
+import com.codepath.apps.simpletweets.models.TwitterUser;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 
 public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
@@ -28,7 +32,22 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		Intent intent = new Intent(this, TimelineActivity.class);
+		getClient().getAuthenticatedUser(new TwitterClient.TwitterUserResponseHandler() {
+			@Override
+			public void onSuccess(TwitterUser user) {
+				TwitterApplication.setAuthenticatedUserId(user.getId());
+				showTimeline();
+			}
+
+			@Override
+			public void onFailure(Throwable error) {
+				showTimeline();
+			}
+		});
+	}
+
+	private void showTimeline() {
+		Intent intent = new Intent(LoginActivity.this, TimelineActivity.class);
 		startActivity(intent);
 	}
 

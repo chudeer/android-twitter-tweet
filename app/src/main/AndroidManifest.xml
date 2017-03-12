@@ -6,15 +6,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".TwitterApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_twitter_logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="AA_DB_NAME"
             android:value="RestClient.db" />
@@ -23,9 +23,9 @@
             android:value="1" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,15 +43,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TimelineActivity"
+            android:name=".activities.TimelineActivity"
             android:label="@string/title_activity_timeline"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TweetDetailsActivity"
+            android:name=".activities.TimelineActivity$TweetDetailsActivity"
             android:label="@string/title_activity_tweet_details"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.TweetDetailActivity"
+            android:label="@string/title_activity_tweet_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".listeners.OnTweetReplyClickListener" />
+        <activity
+            android:name=".listeners.OnUserProfileClickListener"
+            android:label="@string/title_activity_on_user_profile_click_listener"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.TweetDetailsActivity" />
+        <activity android:name=".fragments.TweetListFragment" />
+        <activity android:name=".fragments.FollowerListFragment"></activity>
     </application>
 
 </manifest>
